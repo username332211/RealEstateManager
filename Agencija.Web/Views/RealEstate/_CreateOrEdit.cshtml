@@ -1,0 +1,82 @@
+﻿@model Agencija.Model.RealEstate
+
+<style>
+    .hintText {
+        color: green;
+        display: none;
+    }
+</style>
+
+<div class="form-group">
+    <label class="control-label">Nekretnina</label>
+    <input asp-for="Name" class="form-control" />
+    <span asp-validation-for="Name" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label class="control-label">Tip nekretnine</label>
+    <input asp-for="EstateType" class="form-control" />
+
+</div>
+<div class="form-group">
+    <label asp-for="Address" class="control-label">Adresa</label>
+    <input id="target" asp-for="Address" class="form-control" />
+    <span asp-validation-for="Address" class="text-danger"></span>
+    <span class="hintText">Hint: adresa je jako važna.</span>
+</div>
+<div class="form-group">
+    <label asp-for="Price" class="control-label">Cijena</label>
+    <input id="target" asp-for="Price" class="form-control" />
+    <span asp-validation-for="Price" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label class="control-label">Broj soba</label>
+    <input asp-for="RoomCount" class="form-control" />
+</div>
+<div class="form-group">
+    <label class="control-label">Površina ekestriora</label>
+    <input asp-for="ExteriorSize" class="form-control" />
+</div>
+<div class="form-group">
+    <label class="control-label">Površina interiora</label>
+    <input asp-for="InteriorSize" class="form-control" />
+    <span asp-validation-for="InteriorSize" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label class="control-label">Kvart</label>
+    <select asp-for="NeighborhoodID" asp-items="ViewBag.PossibleNeighborhoods" class="form-control"></select>
+</div>
+<div class="form-group">
+    <label class="control-label">Agent</label>
+    <select asp-for="AgentID" asp-items="ViewBag.PossibleAgents" class="form-control"></select>
+</div>
+<div class="form-group">
+    <label class="control-label">Vlasnik</label>
+    <select asp-for="OwnerID" asp-items="ViewBag.PossibleOwners" class="form-control"></select>
+</div>
+
+
+
+<div class="form-group">
+    <input id="submit1" type="submit" value="Spremi" class="btn btn-outline-success" />
+</div>
+
+
+
+
+@section scripts{
+    <script>
+        $("#target").on("focus", function () {
+            $(".hintText").css("display", "inline");
+        });
+
+        $("#target").on("focusout", function () {
+            $(".hintText").css("display", "none");
+        });
+
+
+
+
+    </script>
+
+}
+

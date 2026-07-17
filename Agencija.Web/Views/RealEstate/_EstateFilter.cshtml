@@ -1,0 +1,26 @@
+﻿@using Agencija.Web.Models
+
+@model RealEstateFilterModel
+
+<form id = "forma" action="@Url.Action("IndexAjax")" method="post">
+	<div class="row">
+		<div class="col">
+			<input asp-for="Name" class="form-control" type="text" placeholder="Nekretnina" />
+		</div>
+		<div class="col">
+			<input asp-for="Address" class="form-control" type="text" placeholder="Adresa" />
+		</div>
+		<div class="col">
+			<input asp-for="Interior" class="form-control" type="text" placeholder="Interior" />
+		</div>
+		<div class="col">
+			<input asp-for="Price" class="form-control" type="text" placeholder="Cijena" />
+		</div>
+        <div class="col">
+            <input type="button" id="btnSearch" class="btn btn-outline-info" value="Pretraga" />
+            <a asp-action="Create" class="btn btn-success">Novi</a>
+
+        </div>
+	</div>
+</form>
+

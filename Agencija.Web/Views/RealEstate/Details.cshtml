@@ -1,0 +1,100 @@
+﻿@model Agencija.Model.RealEstate
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+@if (Model != null)
+{
+    <nav aria-label== "breadcrumb">
+    <ol class="breadcrumb">
+        <li class= "breadcrumb-item"><a asp-action="Index">Popis nekretnina</a></li>
+        <li class="breadcrumb-item active">@Model.Name</li>
+    </ol>
+    </nav>
+
+
+
+    <div>
+        <h4>Nekretnina</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                ID
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ID)
+            </dd>
+            <dt>
+                Nekretnina
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+            <dt>
+                Cijena (EUR)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Price)
+            </dd>
+            <dt>
+                Površina interiora (m²)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.InteriorSize)
+            </dd>
+            <dt>
+                Površina eksteriora (m²)
+            </dt>
+            <dd>
+                @Model?.ExteriorSize
+            </dd>
+            <dt>
+                Broj soba
+            </dt>
+            <dd>
+                @Model?.RoomCount
+            </dd>
+            <dt>
+                Tip nekretnine
+            </dt>
+            <dd>
+                @Model?.EstateType
+            </dd>
+            <dt>
+                Zadužen agent
+            </dt>
+            <dd>
+                @Model?.Agent?.FullName
+            </dd>
+            <dt>
+                Kvart
+            </dt>
+            <dd>
+                @Model?.Neighborhood?.Name
+            </dd>
+            <dt>
+                Vlasnik
+            </dt>
+            <dd>
+                @Model?.Owner?.FullName
+            </dd>
+
+        </dl>
+
+        <div>
+            <a asp-action="Edit" asp-route-id="@Model.ID" class="btn btn-primary">Uredi</a>
+        </div>
+    </div>
+
+}
+else
+{
+    <div class="alert alert-danger">
+        Nije odabran ispravan ID nekretnine.
+    </div>
+
+}
+

@@ -1,0 +1,29 @@
+﻿<table id = "agentTable" style="margin-top: 20px;" class="table table-condensed">
+	<thead>
+        <tr>
+            <th>Ime i prezime</th>
+            <th>Kontakt</th>
+            <th>Prodane nekretnine</th>
+            <th></th>
+            <th></th>
+        </tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+            <tr>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.ID">@item.FullName</a>
+                </td>
+                <td>@item.Contact</td>
+                <td>@item.EstatesSold</td>
+                <td>
+                    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.ID">Edit</a>
+                </td>
+                <td>
+                    <input type="button" id="btnDelete" class="btn btn-danger" value="Delete" onclick="DeleteAjax(@item.ID)">
+                </td>
+            </tr>
+		}
+	</tbody>
+</table>

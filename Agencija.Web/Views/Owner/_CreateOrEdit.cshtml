@@ -1,0 +1,70 @@
+﻿@model Agencija.Model.Owner
+
+<style>
+    .hintText {
+        color: green;
+        display: none;
+    }
+</style>
+
+<div class="form-group">
+    <label class="control-label">Ime</label>
+    <input asp-for="FirstName" class="form-control" />
+    <span asp-validation-for="FirstName" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label class="control-label">Prezime</label>
+    <input asp-for="LastName" class="form-control" />
+
+</div>
+<div class="form-group">
+    <label asp-for="Contact" class="control-label">Kontakt</label>
+    <input id="target" asp-for="Contact" class="form-control" />
+    <span asp-validation-for="Contact" class="text-danger"></span>
+    <span class="hintText">Hint: kontakt je jako važan.</span>
+</div>
+<div class="form-group">
+    <label class="control-label">Datum rođenja</label>
+    <div class="input-group date" data-provide="datepicker"
+         data-date-format="@System.Threading.Thread.CurrentThread.CurrentCulture.DateTimeFormat.ShortDatePattern.ToLower()">
+        <input asp-for="DateOfBirth" type="text" class="form-control">
+        <div class="input-group-addon">
+            <span class="gylphicon gylphicon-th"></span>
+        </div>
+    </div>
+    <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label class="control-label">Datum rođenja</label>
+    <div class="input-group date" data-provide="datepicker"
+         data-date-format="@System.Threading.Thread.CurrentThread.CurrentCulture.DateTimeFormat.ShortDatePattern.ToLower()">
+        <input asp-for="ContractSigned" type="text" class="form-control">
+        <div class="input-group-addon">
+            <span class="gylphicon gylphicon-th"></span>
+        </div>
+    </div>
+    <span asp-validation-for="ContractSigned" class="text-danger"></span>
+</div>
+
+
+<div class="form-group">
+    <input id="submit1" type="submit" value="Spremi" class="btn btn-outline-success" />
+</div>
+
+
+
+@section scripts{
+<script>
+        $("#target").on("focus", function () {
+            $(".hintText").css("display", "inline");
+        });
+
+        $("#target").on("focusout", function () {
+            $(".hintText").css("display", "none");
+        });
+
+
+
+</script>
+
+}

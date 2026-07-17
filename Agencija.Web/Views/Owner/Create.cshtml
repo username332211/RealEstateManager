@@ -1,0 +1,20 @@
+﻿@model Agencija.Model.Owner   
+
+@{
+    ViewData["Title"] = "Dodavanje novog vlasnika";
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-action="Index">Popis vlasnika</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Novi vlasnik</li>
+    </ol>
+</nav>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <partial name="_CreateOrEdit" />
+        </form>
+    </div>
+</div>

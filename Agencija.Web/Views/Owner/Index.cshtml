@@ -1,0 +1,44 @@
+﻿@model List<Agencija.Model.Owner>
+
+@{
+    ViewData["Title"] = "Popis vlasnika";
+}
+
+<h1>Popis vlasnika</h1>
+<div style="margin-top: 20px; margin-bottom: 10px;">
+    <partial name="_OwnerFilter" model="new OwnerFilterModel()" />
+</div>
+
+
+<partial name="_IndexTable" model="Model" />
+
+@section Scripts {
+
+    <script>
+
+		$('#btnSearch').click(function (e) {
+
+			$.ajax({
+				method: "POST",
+				url: '@Url.Action("IndexAjax", "Owner")',
+				data: $('#forma').serialize(),
+				success: function (result) {
+					$('#ownerTable').empty();
+					$('#ownerTable').html(result);
+				}
+			});
+		});
+
+
+        function DeleteAjax(id) {
+            $.ajax({
+                url: '/Owner/Delete?id=' + id,
+                success: function () {
+                    alert("Data deleted!");
+                    location.reload();
+                }
+            });
+        }
+
+    </script>
+}

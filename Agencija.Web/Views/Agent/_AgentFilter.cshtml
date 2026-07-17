@@ -1,0 +1,21 @@
+﻿@using Agencija.Web.Models
+
+@model AgentFilterModel
+
+<form action="@Url.Action("Index")" id = "forma" method="post">
+	<div class="row">
+		<div class="col">
+			<input asp-for="FullName" class="form-control" type="text" placeholder="Ime i prezime" />
+		</div>
+		<div class="col">
+			<input asp-for="Contact" class="form-control" type="text" placeholder="Kontakt" />
+		</div>
+		<div class="col">
+			<input asp-for="EstatesSold" class="form-control" type="text" placeholder="Broj prodanih nekretnina" />
+		</div>
+		<div class="col">
+			<input type="button" id = "btnSearch" class="btn btn-outline-info" value = "Pretraga"/>
+			<a asp-action="Create" class="btn btn-success">Novi</a>
+		</div>
+	</div>
+</form>

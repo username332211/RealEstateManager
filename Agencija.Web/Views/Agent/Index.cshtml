@@ -1,0 +1,42 @@
+﻿@model List<Agencija.Model.Agent>
+
+@{
+	ViewData["Title"] = "Popis agenata";
+}
+
+<h1>Popis agenata</h1>
+<div style="margin-top: 20px; margin-bottom: 10px;">
+	<partial name="_AgentFilter" model="new AgentFilterModel()" />
+</div>
+
+<partial name="_IndexTable" model="Model">
+
+    @section Scripts {
+
+    <script>
+
+		$('#btnSearch').click(function (e) {
+
+			$.ajax({
+				method: "POST",
+				url: '@Url.Action("IndexAjax", "Agent")',
+				data: $('#forma').serialize(),
+				success: function (result) {
+					$('#agentTable').empty();
+					$('#agentTable').html(result);
+				}
+			});
+		});
+
+        function DeleteAjax(id) {
+            $.ajax({
+                url: '/Agent/Delete?id=' + id,
+                success: function () {
+                    alert("Data deleted!");
+                    location.reload();
+                }
+            });
+        }
+
+    </script>
+    }
