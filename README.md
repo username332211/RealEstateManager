@@ -86,9 +86,11 @@ The Data Access Layer responsible for:
 ### Agencija.Model
 
 Contains the application's domain models and entities that represent:
-- Real Estate
-- Owners
-- Agents
+- RealEstate
+- Agent
+- Owner
+- Neighborhood
+- Application User
 
 Separating these projects improves maintainability and keeps responsibilities organized.
 
